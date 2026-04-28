@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { val: 'c', label: 'Three' }
             ],
             correct: 'b',
-            explanation: "Correct! After the first curve, you add the cross-stroke and then the final looping vertical stroke."
+            explanation: "Correct! After the first curve, you add the cross-stroke and then the final looping stroke."
         },
         {
             question: "Select ALL of the characters that are written correctly:",
