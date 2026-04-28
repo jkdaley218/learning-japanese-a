@@ -1,0 +1,355 @@
+/* --- Global Variables & Reset --- */
+:root {
+    --bg-gradient-start: #482b54; 
+    --bg-gradient-end: #2d1e3e;
+    --accent-color: #b32a63;
+    --accent-hover: #8f214e;
+    --text-color: #ffffff;
+    --text-muted: #dcdcdc;
+    --container-bg: rgba(255, 255, 255, 0.08);
+    --success: #2ecc71;
+    --error: #e74c3c;
+    --warning: #f1c40f;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at center, var(--bg-gradient-start), var(--bg-gradient-end));
+    color: var(--text-color);
+    margin: 0;
+    padding: 40px 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* --- Layout Components --- */
+.container {
+    max-width: 800px;
+    width: 90%;
+    background-color: var(--container-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 15px;
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    font-size: 3em;
+    font-weight: 300;
+}
+
+header p {
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin: 0;
+}
+
+video {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background-color: #000;
+}
+
+.instruction {
+    text-align: center;
+    font-style: italic;
+    color: var(--text-muted);
+    margin: 15px 0 25px 0;
+    font-size: 0.95em;
+}
+
+.btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: var(--accent-hover);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- Review Section --- */
+#review-section, #quiz-section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+#review-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.review-row {
+    display: flex;
+    align-items: center;    
+    justify-content: center;  
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+    animation: slideIn 0.4s ease-out;
+}
+
+.review-row img, .visual-thumb, .drag-card {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.review-row img {
+    width: 100%;
+    max-width: 120px;
+}
+
+.step-number {
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--accent-color);
+    opacity: 0.8;
+    line-height: 1;
+}
+
+#review-summary {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+#review-summary img {
+    width: 100%;
+    max-width: 150px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#review-summary p {
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-top: 15px;
+}
+
+/* --- Quiz Components --- */
+.question-text {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.text-option {
+    display: block;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.text-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Drag and Drop */
+.drag-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.drop-zones, .drag-items {
+    display: flex;
+    gap: 15px;
+}
+
+.zone {
+    width: 100px;
+    height: 100px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.drag-items {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+.drag-card {
+    width: 80px;
+    height: 80px;
+    padding: 5px;
+    cursor: grab;
+    transition: transform 0.2s;
+}
+
+.drag-card:active { cursor: grabbing; transform: scale(0.95); }
+
+.drag-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none; 
+}
+
+/* Multi-Select Grid */
+.multi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.multi-option-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.multi-option-card input[type="checkbox"] { display: none; }
+
+.multi-option-card:has(input:checked) {
+    outline: 3px solid var(--accent-color);
+    background: rgba(179, 42, 99, 0.1);
+}
+
+.multi-thumb img {
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Ensure the selection is still visible when disabled */
+.text-option:has(input:checked:disabled) {
+    background: rgba(179, 42, 99, 0.2); /* Keep the maroon tint */
+    border: 1px solid var(--accent-color);
+    opacity: 1 !important; /* Override the 0.6 opacity from the general disabled rule */
+}
+
+.multi-option-card:has(input:checked:disabled) {
+    outline: 3px solid var(--accent-color);
+    background: rgba(179, 42, 99, 0.15);
+    opacity: 1 !important;
+}
+
+/* Specifically for standard radio dots and checkboxes */
+input:checked:disabled {
+    accent-color: var(--accent-color) !important;
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+.drag-card[draggable="false"] {
+    opacity: 0.8;
+    filter: grayscale(0.5);
+}
+
+/* --- Feedback & Results --- */
+.success-msg, .error-msg {
+    padding: 15px;
+    border-radius: 6px;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.success-msg { color: var(--success); background: rgba(46, 204, 113, 0.1); }
+.error-msg { color: var(--error); background: rgba(231, 76, 60, 0.1); }
+
+/* Post-Submission Borders */
+.correct-border { border-color: var(--success) !important; outline: 4px solid var(--success) !important; }
+.wrong-border { border-color: var(--error) !important; outline: 4px solid var(--error) !important; }
+.missed-border { border-color: var(--warning) !important; outline: 4px dotted var(--warning) !important; }
+
+.individual-feedback {
+    font-size: 0.8em;
+    margin-top: 8px;
+    line-height: 1.2;
+}
+
+/* Final Score Screen */
+.final-results {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+.score-display { font-size: 1.5em; margin: 10px 0; }
+.percentage-display { font-size: 1.2em; color: var(--text-muted); }
+
+.grade-circle {
+    width: 100px;
+    height: 100px;
+    background: var(--accent-color);
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 20px auto;
+    box-shadow: 0 0 20px rgba(179, 42, 99, 0.4);
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}

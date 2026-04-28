@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiragana Lesson: あ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <div class="container">
+        <header id="main-header"> <h1>Hiragana: あ</h1>
+            <p>Learning How to Write Japanese Characters</p>
+        </header>
+
+        <div id="video-section">
+            <video id="lesson-video" controls>
+                <source src="videos/procedure_project.mp4" type="video/mp4">
+            </video>
+            <p class="instruction">Watch the video carefully. A review will appear below when finished.</p>
+            <button id="start-review-btn" class="btn hidden">Show Review Steps</button>
+        </div>
+
+        <div id="review-section" class="hidden">
+            <div id="review-grid">
+                <div class="review-row step-row hidden" id="row-1">
+                    <div class="step-number">1</div>
+                    <img src="images/firststroke.png">
+                    <img src="videos/firststep.gif">
+                </div>
+                <div class="review-row step-row hidden" id="row-2">
+                    <div class="step-number">2</div>
+                    <img src="images/secondstroke.png">
+                    <img src="videos/secondstep.gif">
+                </div>
+                <div class="review-row step-row hidden" id="row-3">
+                    <div class="step-number">3</div>
+                    <img src="images/thirdstroke.png">
+                    <img src="videos/thirdstep.gif">
+                </div>
+            </div>
+            <div id="review-summary" class="hidden">
+                <img src="videos/characterAanimation.gif">
+                <p>Full Completed Character Animation</p>
+            </div>
+            <button id="next-review-btn" class="btn">Next Step</button>
+            <button id="take-quiz-btn" class="btn hidden">Take the Quiz</button>
+        </div>
+
+        <div id="quiz-section" class="hidden">
+            <h2>Quiz</h2> <div id="question-container">
+                </div>
+            <div id="feedback-container" class="hidden"></div>
+            <button id="quiz-action-btn" class="btn">Submit Answer</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
